@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Post #3 - Algoritmos de Recorrido (BFS/DFS)</title>
+  <link rel="stylesheet" href="../style.css">
+ </head>
+<body>
+  <header>
+    <h1>Post #3: Algoritmos de Recorrido (BFS/DFS)</h1>
+    <a href="../index.html">← Volver al índice</a>
+  </header>
+  <main>
+    <h2>Descripción</h2>
+    <p>Explicamos los dos recorridos fundamentales:</p>
+    <ul>
+      <li><strong>Búsqueda en Amplitud (BFS)</strong>: explora por niveles, útil para encontrar la distancia mínima en grafos no ponderados.</li>
+      <li><strong>Búsqueda en Profundidad (DFS)</strong>: explora tan profundo como sea posible antes de retroceder, útil para componentes conectados, orden topológico (en DAGs), detección de ciclos.</li>
+    </ul>
+
+    <h2>Demo interactivo</h2>
+    <p>Seleccione un nodo y luego pulse <em>BFS</em> o <em>DFS</em> para ver el orden de visita.</p>
+
+    <div class="controls">
+      <button id="bfsBtn" class="btn">BFS</button>
+      <button id="dfsBtn" class="btn">DFS</button>
+      <button id="resetBtn" class="btn secondary">Reset</button>
+    </div>
+
+    <div class="graph" id="graphContainer">
+      <svg id="graphSvg" viewBox="0 0 500 220" xmlns="http://www.w3.org/2000/svg">
+        <line x1="90" y1="40" x2="160" y2="40" class="edge" data-e="A-B"/>
+        <line x1="160" y1="40" x2="230" y2="100" class="edge" data-e="B-C"/>
+        <line x1="230" y1="100" x2="160" y2="160" class="edge" data-e="C-D"/>
+        <line x1="160" y1="160" x2="90" y2="100" class="edge" data-e="D-E"/>
+        <line x1="90" y1="100" x2="230" y2="100" class="edge" data-e="E-C"/>
+
+        <circle cx="90" cy="40" r="18" class="node" id="A"/>
+        <text x="90" y="45" text-anchor="middle" fill="#fff">A</text>
+        <circle cx="160" cy="40" r="18" class="node" id="B"/>
+        <text x="160" y="45" text-anchor="middle" fill="#fff">B</text>
+        <circle cx="230" cy="100" r="18" class="node" id="C"/>
+        <text x="230" y="105" text-anchor="middle" fill="#fff">C</text>
+        <circle cx="160" cy="160" r="18" class="node" id="D"/>
+        <text x="160" y="165" text-anchor="middle" fill="#fff">D</text>
+        <circle cx="90" cy="100" r="18" class="node" id="E"/>
+        <text x="90" y="105" text-anchor="middle" fill="#fff">E</text>
+      </svg>
+    </div>
+
+    <p>Registro de visitas:</p>
+    <div id="log" class="log"></div>
+
+    <script src="../assets/script.js"></script>
+  </main>
+</body>
+</html>

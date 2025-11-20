@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Post #2 - Representación de Grafos</title>
+  <link rel="stylesheet" href="../style.css">
+ </head>
+<body>
+  <header>
+    <h1>Post #2: Representación de Grafos</h1>
+    <a href="../index.html">← Volver al índice</a>
+  </header>
+  <main>
+    <h2>Formas principales</h2>
+    <p>Las dos formas más comunes para representar grafos en memoria son:</p>
+    <ul>
+      <li><strong>Lista de adyacencia</strong>: para cada nodo se guarda la lista de vecinos (eficiente en espacio para grafos dispersos).</li>
+      <li><strong>Matriz de adyacencia</strong>: una matriz N×N donde la celda (i,j) indica si existe arista entre i y j (eficiente para consultar existencia de arista).</li>
+    </ul>
+
+    <h2>Ejemplo (mismo grafo de 5 nodos)</h2>
+    <h3>Lista de adyacencia</h3>
+    <pre class="log">A: B, E
+B: A, C
+C: B, D, E
+D: C, E
+E: A, C, D</pre>
+
+    <h3>Matriz de adyacencia</h3>
+    <pre class="log">  A B C D E
+A 0 1 0 0 1
+B 1 0 1 0 0
+C 0 1 0 1 1
+D 0 0 1 0 1
+E 1 0 1 1 0</pre>
+
+    <p>Use lista si el grafo es disperso (pocas aristas). Use matriz si necesita consultas rápidas de existencia de arista y el grafo no es muy grande.</p>
+  </main>
+</body>
+</html>
