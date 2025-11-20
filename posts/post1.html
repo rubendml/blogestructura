@@ -74,5 +74,16 @@
       </section>
     </div>
   </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="copyright">© <span id="year-post1"></span> Derechos Reservados - Creaciones Manotas</div>
+    </div>
+  </footer>
+
+  <script>
+    // mantener el año dinámico en posts
+    document.getElementById('year-post1').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

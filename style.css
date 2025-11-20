@@ -15,12 +15,20 @@
 		 - --muted: texto secundario
 	*/
 	/* Paleta menos oscura y sobria: tonos azulados y dorado tenue, fondo claro suave */
-	--accent:#1f4a73; /* azul formal (botones, nodos) */
-	--accent-2:#b78f3b; /* dorado tenue para highlights */
-	--muted:#5b6b78; /* gris azulado para texto secundario */
-	--bg: linear-gradient(180deg,#f7fbfe 0%, #eef6fb 60%); /* hero claro y elegante */
-	--page-bg:#f3f7fb; /* fondo general claro */
-	--card:#ffffff; /* tarjetas claras */
+	/* Aplicación de la regla 60% / 30% / 10%:
+	   - 60% (fondo principal): --primary (uso extensivo en fondo)
+	   - 30% (secundario): --secondary (tarjetas, secciones)
+	   - 10% (acento): --accent (botones, títulos, llamadas)
+	*/
+
+	--primary:#f3f7fb; /* ~60% uso: fondo general */
+	--secondary:#ffffff; /* ~30% uso: tarjetas/controles */
+	--accent:#1f4a73; /* ~10% uso: color principal (botones, títulos) */
+	--accent-2:#b78f3b; /* acento secundario para highlights */
+	--muted:#5b6b78; /* texto secundario */
+	--bg: linear-gradient(180deg,#f7fbfe 0%, #eef6fb 60%); /* hero claro */
+	--page-bg:var(--primary);
+	--card:var(--secondary);
 	--glass: rgba(255,255,255,0.03);
 	--max-width: 980px;
 }
@@ -34,7 +42,7 @@ body{
 	background: var(--page-bg);
 	color:#0b2233; /* texto oscuro para buen contraste en fondo claro */
 	-webkit-font-smoothing:antialiased;
-}
+	line-height:1.6;
 
 .site{display:flex;flex-direction:column;min-height:100vh}
 .container{width:100%;max-width:var(--max-width);margin:0 auto;padding:22px}
@@ -42,9 +50,9 @@ body{
 /* Header / Hero */
 .hero-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
 .brand{display:flex;align-items:center;gap:14px}
-.brand img{width:48px;height:48px}
-.brand h1{margin:0;font-size:1.4rem;color: #fff}
-.hero-sub{color:var(--muted);font-size:0.95rem}
+	.brand img{width:56px;height:56px}
+	.brand h1{margin:0;font-size:1.6rem;color:var(--accent);font-weight:800}
+	.hero-sub{color:var(--muted);font-size:0.98rem}
 
 /* Hero header updated to lighter style */
 header.hero{
@@ -55,13 +63,14 @@ header.hero{
 .hero-sub{color:var(--muted);font-size:0.95rem}
 .hero-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
 .main-nav{display:flex;gap:10px;align-items:center}
-.nav-link{color: #0b2233;padding:10px 14px;border-radius:10px;text-decoration:none;display:inline-flex;gap:8px;align-items:center;font-weight:600}
-.nav-link:hover{background:rgba(11,34,51,0.06);transform:translateY(-2px)}
+	.nav-link{color: var(--accent);padding:10px 14px;border-radius:10px;text-decoration:none;display:inline-flex;gap:8px;align-items:center;font-weight:700}
+	.nav-link:hover{background:rgba(31,74,115,0.06);transform:translateY(-2px)}
 .nav-icon{width:18px;height:18px;opacity:0.95;filter:drop-shadow(0 1px 0 rgba(0,0,0,0.03))}
 
 /* Main content */
 main{padding:28px 0}
 .card{background:var(--card);border-radius:12px;padding:18px;margin-bottom:18px;box-shadow: 0 6px 18px rgba(16,32,48,0.06)}
+	.card{background:var(--card);border-radius:12px;padding:20px;margin-bottom:20px;box-shadow: 0 6px 18px rgba(16,32,48,0.06);color:#0b2233}
 .center{text-align:center}
 
 .graph{max-width:640px;margin:18px auto}
@@ -70,11 +79,22 @@ main{padding:28px 0}
 .node.visited{fill:var(--accent-2)}
 .node.selected{stroke: rgba(16,32,48,0.18);stroke-width:2px}
 .edge{stroke:rgba(11,34,51,0.12);stroke-width:2px}
+	.node{fill:var(--accent);stroke:rgba(16,32,48,0.08);stroke-width:1.2px;cursor:pointer}
+	.node.visited{fill:var(--accent-2)}
+	.node.selected{stroke: rgba(16,32,48,0.18);stroke-width:2px}
+	.edge{stroke:rgba(11,34,51,0.08);stroke-width:2px}
 
 .controls{margin:14px 0;display:flex;gap:10px;justify-content:center}
 .btn{display:inline-block;padding:10px 14px;background:var(--accent);color:#fff;border-radius:10px;text-decoration:none;cursor:pointer;border:none;font-weight:700}
 .btn.secondary{background:transparent;border:1px solid rgba(11,34,51,0.06);color:var(--muted)}
 .log{font-family:monospace;background:rgba(11,34,51,0.03);padding:10px;border-radius:8px;min-height:34px;color:var(--muted)}
+	.btn.secondary{background:transparent;border:1px solid rgba(31,74,115,0.08);color:var(--muted)}
+	.log{font-family:monospace;background:rgba(11,34,51,0.03);padding:10px;border-radius:8px;min-height:34px;color:var(--muted);overflow:auto}
+
+	/* Evitar desbordes de texto: cajas flexibles y wrapping */
+	.container, .card { word-wrap: break-word; overflow-wrap: break-word; }
+	pre, code { white-space: pre-wrap; word-break: break-word; }
+	pre { overflow:auto; }
 
 /* Footer */
 footer.site-footer{margin-top:auto;padding:20px 0;background:transparent;border-top:1px solid rgba(16,32,48,0.04)}
