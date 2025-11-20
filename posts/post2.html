@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Post #2 - Representación de Grafos</title>
+  <link rel="stylesheet" href="../style.css">
+ </head>
+<body>
+  <header class="hero">
+    <div class="container hero-inner">
+      <div class="brand">
+        <img src="../assets/icons/brand.svg" alt="logo">
+        <div>
+          <h1>Post #2: Representación de Grafos</h1>
+          <div class="hero-sub">Lista de adyacencia y Matriz de adyacencia</div>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <a class="nav-link" href="../index.html">← Volver al índice</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <section class="card center">
+        <h2>Formas principales</h2>
+        <p>Las dos formas más comunes para representar grafos en memoria son:</p>
+        <ul style="text-align:left;max-width:680px;margin:0 auto;">
+          <li><strong>Lista de adyacencia</strong>: para cada nodo se guarda la lista de vecinos (eficiente en espacio para grafos dispersos).</li>
+          <li><strong>Matriz de adyacencia</strong>: una matriz N×N donde la celda (i,j) indica si existe arista entre i y j (eficiente para consultar existencia de arista).</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h3 class="center">Lista de adyacencia</h3>
+        <p>En la lista de adyacencia, para cada vértice se mantiene una lista (o vector) de sus vecinos. Es la representación preferida para grafos dispersos.</p>
+        <pre class="log">A: B, E
+      B: A, C
+      C: B, D, E
+      D: C, E
+      E: A, C, D</pre>
+        <p>Ejemplo de implementación (JavaScript):</p>
+        <pre class="log">const adj = {
+        A: ['B','E'],
+        B: ['A','C'],
+        C: ['B','D','E'],
+        D: ['C','E'],
+        E: ['A','C','D']
+      };
+
+      // Añadir arista (no dirigida)
+      function addEdge(u,v){ adj[u].push(v); adj[v].push(u); }</pre>
+        <p><strong>Complejidad:</strong> espacio O(V + E). Iterar vecinos de un nodo es O(deg(v)).</p>
+      </section>
+
+      <section class="card">
+        <h3 class="center">Matriz de adyacencia</h3>
+        <p>La matriz de adyacencia es una matriz N×N (N = |V|) donde la celda (i,j) indica presencia/peso de la arista entre i y j.</p>
+        <pre class="log">  A B C D E
+A 0 1 0 0 1
+B 1 0 1 0 0
+C 0 1 0 1 1
+D 0 0 1 0 1
+E 1 0 1 1 0</pre>
+        <p><strong>Complejidad:</strong> espacio O(N^2). Comprobar existencia de arista es O(1). Adecuada para grafos densos o cuando N es pequeño.</p>
+        <p><strong>Comparativa rápida:</strong></p>
+        <ul>
+          <li>Lista: espacio O(V+E), iterar vecinos O(deg(v)).</li>
+          <li>Matriz: espacio O(V^2), consulta de arista O(1).</li>
+        </ul>
+        <p>Para convertir entre representaciones, recorra la lista y vaya rellenando la matriz (o viceversa iterando la matriz).</p>
+      </section>
+
+      <section class="card">
+        <h3 class="center">Cuándo usar cada una</h3>
+        <p>Usa lista de adyacencia si tu grafo tiene << V^2 aristas (esparso). Usa matriz si necesitas consultas O(1) y V es pequeño o el grafo es denso.</p>
+        <p>Para implementaciones en algoritmos clásicos (BFS/DFS, Dijkstra para pesos no negativos) la lista suele ser preferida por su eficiencia.</p>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

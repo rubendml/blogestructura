@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Post #3 - Algoritmos de Recorrido (BFS/DFS)</title>
+  <link rel="stylesheet" href="../style.css">
+ </head>
+<body>
+  <header class="hero">
+    <div class="container hero-inner">
+      <div class="brand">
+        <img src="../assets/icons/brand.svg" alt="logo">
+        <div>
+          <h1>Post #3: Algoritmos de Recorrido (BFS/DFS)</h1>
+          <div class="hero-sub">Demostración interactiva de BFS y DFS</div>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <a class="nav-link" href="../index.html">← Volver al índice</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <section class="card">
+        <h2 class="center">Descripción</h2>
+        <p class="center">Explicamos los dos recorridos fundamentales y su importancia práctica y teórica.</p>
+        <ul style="max-width:720px;margin:0 auto;text-align:left;">
+          <li><strong>Búsqueda en Amplitud (BFS)</strong>: explora por niveles (anchura). Se usa para encontrar la distancia mínima (en número de aristas) desde un nodo origen en grafos no ponderados, y para detectar conectividad por niveles.</li>
+          <li><strong>Búsqueda en Profundidad (DFS)</strong>: explora de manera recursiva o con pila, profundizando antes de retroceder. Es útil para detectar componentes, ciclos, obtener orden topológico en DAGs y para algoritmos como detección de puentes y puntos de articulación.</li>
+        </ul>
+      </section>
+
+      <section class="card center">
+        <h2>Demo interactivo</h2>
+        <p>Seleccione un nodo y luego pulse <em>BFS</em> o <em>DFS</em> para ver el orden de visita.</p>
+
+        <div class="controls">
+          <button id="bfsBtn" class="btn">BFS</button>
+          <button id="dfsBtn" class="btn">DFS</button>
+          <button id="resetBtn" class="btn secondary">Reset</button>
+        </div>
+
+        <div class="graph" id="graphContainer">
+          <svg id="graphSvg" viewBox="0 0 500 220" xmlns="http://www.w3.org/2000/svg">
+            <line x1="90" y1="40" x2="160" y2="40" class="edge" data-e="A-B"/>
+            <line x1="160" y1="40" x2="230" y2="100" class="edge" data-e="B-C"/>
+            <line x1="230" y1="100" x2="160" y2="160" class="edge" data-e="C-D"/>
+            <line x1="160" y1="160" x2="90" y2="100" class="edge" data-e="D-E"/>
+            <line x1="90" y1="100" x2="230" y2="100" class="edge" data-e="E-C"/>
+
+            <circle cx="90" cy="40" r="18" class="node" id="A"/>
+            <text x="90" y="45" text-anchor="middle" fill="#fff">A</text>
+            <circle cx="160" cy="40" r="18" class="node" id="B"/>
+            <text x="160" y="45" text-anchor="middle" fill="#fff">B</text>
+            <circle cx="230" cy="100" r="18" class="node" id="C"/>
+            <text x="230" y="105" text-anchor="middle" fill="#fff">C</text>
+            <circle cx="160" cy="160" r="18" class="node" id="D"/>
+            <text x="160" y="165" text-anchor="middle" fill="#fff">D</text>
+            <circle cx="90" cy="100" r="18" class="node" id="E"/>
+            <text x="90" y="105" text-anchor="middle" fill="#fff">E</text>
+          </svg>
+        </div>
+
+        <p>Registro de visitas:</p>
+        <div id="log" class="log"></div>
+        <section class="card">
+          <h3 class="center">Pseudocódigo y complejidad</h3>
+          <h4>BFS (pseudocódigo)</h4>
+          <pre class="log">BFS(G, start):
+  crear cola Q
+  marcar start como visitado
+  Q.enqueue(start)
+  while Q no vacío:
+    u = Q.dequeue()
+    procesar(u)
+    for cada v en vecinos(u):
+      if v no visitado:
+        marcar v visitado
+        Q.enqueue(v)
+
+Complejidad: O(V + E) en tiempo y O(V) en memoria (cola + visitados).
+          </pre>
+
+          <h4>DFS (pseudocódigo, recursivo)</h4>
+          <pre class="log">DFS(G, u):
+  marcar u visitado
+  procesar(u)
+  for cada v en vecinos(u):
+    if v no visitado:
+      DFS(G, v)
+
+Complejidad: O(V + E). En implementaciones recursivas hay que considerar la profundidad máxima (posible desbordamiento de pila si el grafo es muy profundo).</pre>
+
+          <h4>Aplicaciones y notas</h4>
+          <ul>
+            <li><strong>BFS:</strong> distancia mínima en grafos no ponderados, búsqueda por capas, generación de árboles de expansión en anchura.</li>
+            <li><strong>DFS:</strong> detección de ciclos, orden topológico (en DAG), componentes fuertemente conectadas (Kosaraju/Tarjan) y exploración profunda para backtracking.</li>
+            <li>Para grafos con pesos y rutas más cortas, use Dijkstra (pesos positivos) o Bellman-Ford (pesos negativos permitidos).</li>
+          </ul>
+          <p>El demo interactivo usa la lista de adyacencia definida en <code>assets/script.js</code>. Puedes alternar entre BFS y DFS seleccionando un nodo.</p>
+
+          <p class="center"><em>Nota:</em> si el grafo es grande, adapte la animación bajando <code>ANIM_DELAY</code> en <code>assets/script.js</code> o deshabilite la animación para ejecuciones rápidas.</p>
+
+          <script src="../assets/script.js"></script>
+        </section>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

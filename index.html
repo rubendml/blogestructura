@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Blog Técnico: Grafos</title>
+  <link rel="stylesheet" href="style.css">
+ </head>
+<body>
+  <div class="site">
+    <header class="hero">
+      <div class="container hero-inner">
+        <div class="brand">
+          <img src="assets/icons/brand.svg" alt="logo"/>
+          <div>
+            <h1>Blog Técnico: Grafos</h1>
+            <div class="hero-sub">Nodos, representaciones y algoritmos — contenido didáctico y de investigación</div>
+          </div>
+        </div>
+
+        <nav class="main-nav">
+          <a class="nav-link" href="posts/post1.html"><img class="nav-icon" src="assets/icons/list.svg" alt="">Post #1</a>
+          <a class="nav-link" href="posts/post2.html"><img class="nav-icon" src="assets/icons/matrix.svg" alt="">Post #2</a>
+          <a class="nav-link" href="posts/post3.html"><img class="nav-icon" src="assets/icons/alg.svg" alt="">Post #3</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <section class="card center">
+          <h2>Objetivo de la actividad</h2>
+          <p>Este blog explica de forma clara y concisa los conceptos básicos de grafos, las dos representaciones principales y los algoritmos de recorrido fundamentales (BFS y DFS). Incluye ejemplos visuales y un demo interactivo.</p>
+        </section>
+
+        <section class="card center">
+          <h2>Contenido</h2>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+            <li class="card" style="padding:12px;min-width:200px;">Post #1: Introducción — nodos, aristas y tipos</li>
+            <li class="card" style="padding:12px;min-width:200px;">Post #2: Representación — lista y matriz</li>
+            <li class="card" style="padding:12px;min-width:200px;">Post #3: Recorridos — BFS y DFS (demo)</li>
+          </ul>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="copyright">© <span id="year"></span> Derechos Reservados - Creaciones Manotas</div>
+        <div class="muted">Repositorio: entregue en GitHub Pages</div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // script mínimo para año dinámico
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

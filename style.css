@@ -1,0 +1,94 @@
+/*
+	style.css - tema moderno y variables
+
+	Para cambiar colores y tipografía: editar las variables CSS en :root.
+	- --accent: color principal (botones, nodos)
+	- --muted: color secundario
+	- --bg: color de fondo
+	- --card: fondo de secciones
+*/
+
+:root{
+	/* Paleta sobria/formal:
+		 - --accent: color principal (texto destacado, botones)
+		 - --accent-2: acento secundario (nodos visitados, highlights)
+		 - --muted: texto secundario
+	*/
+	/* Paleta menos oscura y sobria: tonos azulados y dorado tenue, fondo claro suave */
+	--accent:#1f4a73; /* azul formal (botones, nodos) */
+	--accent-2:#b78f3b; /* dorado tenue para highlights */
+	--muted:#5b6b78; /* gris azulado para texto secundario */
+	--bg: linear-gradient(180deg,#f7fbfe 0%, #eef6fb 60%); /* hero claro y elegante */
+	--page-bg:#f3f7fb; /* fondo general claro */
+	--card:#ffffff; /* tarjetas claras */
+	--glass: rgba(255,255,255,0.03);
+	--max-width: 980px;
+}
+
+/* Reset y base */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+	margin:0;padding:0;
+	font-family: 'Segoe UI', Roboto, system-ui, -apple-system, 'Helvetica Neue', Arial;
+	background: var(--page-bg);
+	color:#0b2233; /* texto oscuro para buen contraste en fondo claro */
+	-webkit-font-smoothing:antialiased;
+}
+
+.site{display:flex;flex-direction:column;min-height:100vh}
+.container{width:100%;max-width:var(--max-width);margin:0 auto;padding:22px}
+
+/* Header / Hero */
+.hero-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:14px}
+.brand img{width:48px;height:48px}
+.brand h1{margin:0;font-size:1.4rem;color: #fff}
+.hero-sub{color:var(--muted);font-size:0.95rem}
+
+/* Hero header updated to lighter style */
+header.hero{
+	background: var(--bg);
+	padding:28px 0 32px 0;
+	box-shadow: 0 4px 12px rgba(16,32,48,0.06);
+}
+.hero-sub{color:var(--muted);font-size:0.95rem}
+.hero-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.main-nav{display:flex;gap:10px;align-items:center}
+.nav-link{color: #0b2233;padding:10px 14px;border-radius:10px;text-decoration:none;display:inline-flex;gap:8px;align-items:center;font-weight:600}
+.nav-link:hover{background:rgba(11,34,51,0.06);transform:translateY(-2px)}
+.nav-icon{width:18px;height:18px;opacity:0.95;filter:drop-shadow(0 1px 0 rgba(0,0,0,0.03))}
+
+/* Main content */
+main{padding:28px 0}
+.card{background:var(--card);border-radius:12px;padding:18px;margin-bottom:18px;box-shadow: 0 6px 18px rgba(16,32,48,0.06)}
+.center{text-align:center}
+
+.graph{max-width:640px;margin:18px auto}
+.graph svg{width:100%;height:320px;border-radius:8px;overflow:visible}
+.node{fill:var(--accent);stroke:rgba(16,32,48,0.12);stroke-width:1.2px;cursor:pointer}
+.node.visited{fill:var(--accent-2)}
+.node.selected{stroke: rgba(16,32,48,0.18);stroke-width:2px}
+.edge{stroke:rgba(11,34,51,0.12);stroke-width:2px}
+
+.controls{margin:14px 0;display:flex;gap:10px;justify-content:center}
+.btn{display:inline-block;padding:10px 14px;background:var(--accent);color:#fff;border-radius:10px;text-decoration:none;cursor:pointer;border:none;font-weight:700}
+.btn.secondary{background:transparent;border:1px solid rgba(11,34,51,0.06);color:var(--muted)}
+.log{font-family:monospace;background:rgba(11,34,51,0.03);padding:10px;border-radius:8px;min-height:34px;color:var(--muted)}
+
+/* Footer */
+footer.site-footer{margin-top:auto;padding:20px 0;background:transparent;border-top:1px solid rgba(16,32,48,0.04)}
+.site-footer .container{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.copyright{color:var(--muted)}
+
+/* Responsive */
+@media (max-width:720px){
+	.hero-inner{flex-direction:column;align-items:flex-start}
+	.main-nav{flex-wrap:wrap}
+}
+
+/* Comentarios para personalización rápida:
+	 - Cambie --accent para modificar el color principal.
+	 - Cambie --bg para alterar el fondo del hero.
+	 - Las clases .card, .btn, .node usan las variables para mantener coherencia.
+*/

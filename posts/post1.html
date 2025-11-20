@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Post #1 - Introducción a los Grafos</title>
+  <link rel="stylesheet" href="../style.css">
+ </head>
+<body>
+  <header class="hero">
+    <div class="container hero-inner">
+      <div class="brand">
+        <img src="../assets/icons/brand.svg" alt="logo">
+        <div>
+          <h1>Post #1: Introducción a los Grafos</h1>
+          <div class="hero-sub">Definición, nodos, aristas y tipos</div>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <a class="nav-link" href="../index.html">← Volver al índice</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <section class="card center">
+        <h2>Definición (más profundidad)</h2>
+        <p>Formalmente, un grafo G = (V, E) consta de un conjunto finito de vértices <strong>V</strong> y un conjunto de aristas <strong>E</strong>. Cada arista conecta uno o dos vértices, según el tipo de grafo.</p>
+        <p>Los grafos son modelos matemáticos muy versátiles que se usan para representar redes sociales, rutas, dependencias, mapas, circuitos y relaciones entre entidades en ciencias de la computación y otras disciplinas.</p>
+        <p>En el análisis teórico, se estudian propiedades como conectividad, ciclos, componentes, distancia (longitud mínima), diámetro, entre otras.</p>
+      </section>
+
+      <section class="card">
+      <section class="card">
+        <h3 class="center">Comentarios de investigación</h3>
+        <p>Desde un punto de vista de investigación, los grafos permiten estudiar problemas y técnicas como:</p>
+        <ul>
+          <li><strong>Propagación:</strong> modelos de difusión (p. ej. modelos SIR/SEIR) que muestran cómo se propaga información o enfermedades según la estructura de la red.</li>
+          <li><strong>Centralidad:</strong> medidas para identificar nodos clave: grado (conexiones directas), <em>betweenness</em> (intermediarios entre rutas), <em>closeness</em> (proximidad a otros nodos) y <em>eigenvector centrality</em>.</li>
+          <li><strong>Detección de comunidades:</strong> algoritmos que identifican clusters con alta interconectividad (Louvain, Leiden, Girvan-Newman), usados en análisis social y biológico.</li>
+          <li><strong>Optimización y flujo:</strong> problemas clásicos como caminos más cortos (Dijkstra, Bellman-Ford), flujo máximo (Ford-Fulkerson / Edmonds-Karp) y emparejamiento en grafos bipartitos (Hungarian, Hopcroft–Karp).</li>
+        </ul>
+        <p>Temas avanzados incluyen grafos dinámicos (redes que cambian con el tiempo), grafos probabilísticos, análisis espectral (matrices Laplacianas) y representación de grafos con embeddings para aprendizaje automático.</p>
+        <p>Si deseas profundizar, busca artículos académicos sobre "network science", libros de algoritmos y revisiones sobre análisis de redes complejas.</p>
+      </section>
+          <li><strong>Componentes:</strong> subgrafos conexos máximos.</li>
+        </ul>
+        <p>Referencias rápidas: la teoría de grafos es extensa; para profundizar consulte libros como "Introducción a los Grafos" o recursos en línea (Wikipedia, libros de algoritmos como Cormen et al.).</p>
+      </section>
+
+      <section class="card center">
+        <h2>Ejemplo visual</h2>
+        <p>A continuación, un grafo no dirigido simple con 5 nodos (A–E):</p>
+        <div class="graph">
+          <svg viewBox="0 0 500 220" xmlns="http://www.w3.org/2000/svg">
+            <line x1="90" y1="40" x2="160" y2="40" class="edge"/>
+            <line x1="160" y1="40" x2="230" y2="100" class="edge"/>
+            <line x1="230" y1="100" x2="160" y2="160" class="edge"/>
+            <line x1="160" y1="160" x2="90" y2="100" class="edge"/>
+            <line x1="90" y1="100" x2="230" y2="100" class="edge"/>
+
+            <circle cx="90" cy="40" r="18" class="node"/>
+            <text x="90" y="45" text-anchor="middle" fill="#fff">A</text>
+            <circle cx="160" cy="40" r="18" class="node"/>
+            <text x="160" y="45" text-anchor="middle" fill="#fff">B</text>
+            <circle cx="230" cy="100" r="18" class="node"/>
+            <text x="230" y="105" text-anchor="middle" fill="#fff">C</text>
+            <circle cx="160" cy="160" r="18" class="node"/>
+            <text x="160" y="165" text-anchor="middle" fill="#fff">D</text>
+            <circle cx="90" cy="100" r="18" class="node"/>
+            <text x="90" y="105" text-anchor="middle" fill="#fff">E</text>
+          </svg>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
