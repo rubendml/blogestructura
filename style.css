@@ -9,27 +9,16 @@
 */
 
 :root{
-	/* Paleta sobria/formal:
-		 - --accent: color principal (texto destacado, botones)
-		 - --accent-2: acento secundario (nodos visitados, highlights)
-		 - --muted: texto secundario
-	*/
-	/* Paleta menos oscura y sobria: tonos azulados y dorado tenue, fondo claro suave */
-	/* Aplicación de la regla 60% / 30% / 10%:
-	   - 60% (fondo principal): --primary (uso extensivo en fondo)
-	   - 30% (secundario): --secondary (tarjetas, secciones)
-	   - 10% (acento): --accent (botones, títulos, llamadas)
-	*/
-
-	--primary:#f3f7fb; /* ~60% uso: fondo general */
-	--secondary:#ffffff; /* ~30% uso: tarjetas/controles */
-	--accent:#1f4a73; /* ~10% uso: color principal (botones, títulos) */
-	--accent-2:#b78f3b; /* acento secundario para highlights */
-	--muted:#5b6b78; /* texto secundario */
-	--bg: linear-gradient(180deg,#f7fbfe 0%, #eef6fb 60%); /* hero claro */
-	--page-bg:var(--primary);
-	--card:var(--secondary);
-	--glass: rgba(255,255,255,0.03);
+	/* 60/30/10 palette focused on blue tones */
+	--primary: #f6fbff; /* 60% background */
+	--secondary: #ffffff; /* 30% cards */
+	--accent: #0b63d6; /* 10% primary action (deep blue) */
+	--accent-2: #2b8cff; /* secondary highlight */
+	--muted: #5b6b78; /* muted text */
+	--bg: linear-gradient(180deg,#eaf6ff 0%, #ffffff 60%);
+	--page-bg: var(--primary);
+	--card: var(--secondary);
+	--glass: rgba(11,99,214,0.06);
 	--max-width: 980px;
 }
 
@@ -75,17 +64,13 @@ main{padding:28px 0}
 
 .graph{max-width:640px;margin:18px auto}
 .graph svg{width:100%;height:320px;border-radius:8px;overflow:visible}
-.node{fill:var(--accent);stroke:rgba(16,32,48,0.12);stroke-width:1.2px;cursor:pointer}
+.node{fill:var(--secondary);stroke:var(--accent);stroke-width:3;cursor:pointer}
 .node.visited{fill:var(--accent-2)}
-.node.selected{stroke: rgba(16,32,48,0.18);stroke-width:2px}
-.edge{stroke:rgba(11,34,51,0.12);stroke-width:2px}
-	.node{fill:var(--accent);stroke:rgba(16,32,48,0.08);stroke-width:1.2px;cursor:pointer}
-	.node.visited{fill:var(--accent-2)}
-	.node.selected{stroke: rgba(16,32,48,0.18);stroke-width:2px}
-	.edge{stroke:rgba(11,34,51,0.08);stroke-width:2px}
+.node.selected{stroke: rgba(11,34,51,0.18);stroke-width:2px}
+.edge{stroke:var(--accent);stroke-width:2px}
 
 .controls{margin:14px 0;display:flex;gap:10px;justify-content:center}
-.btn{display:inline-block;padding:10px 14px;background:var(--accent);color:#fff;border-radius:10px;text-decoration:none;cursor:pointer;border:none;font-weight:700}
+.btn{display:inline-block;padding:10px 14px;background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#fff;border-radius:10px;text-decoration:none;cursor:pointer;border:none;font-weight:700}
 .btn.secondary{background:transparent;border:1px solid rgba(11,34,51,0.06);color:var(--muted)}
 .log{font-family:monospace;background:rgba(11,34,51,0.03);padding:10px;border-radius:8px;min-height:34px;color:var(--muted)}
 	.btn.secondary{background:transparent;border:1px solid rgba(31,74,115,0.08);color:var(--muted)}

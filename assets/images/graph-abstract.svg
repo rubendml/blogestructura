@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="600" height="360">
+  <defs>
+    <linearGradient id="g1" x1="0" x2="1">
+      <stop offset="0%" stop-color="#e6f0ff" />
+      <stop offset="100%" stop-color="#d9e8ff" />
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <g transform="translate(40,30)">
+    <g fill="url(#g1)" stroke="#9bbcf8" stroke-width="2">
+      <circle cx="60" cy="60" r="18" />
+      <circle cx="180" cy="30" r="16" />
+      <circle cx="300" cy="80" r="20" />
+      <circle cx="420" cy="40" r="15" />
+      <circle cx="120" cy="160" r="14" />
+      <circle cx="360" cy="150" r="17" />
+    </g>
+    <g stroke="#7aa0f6" stroke-width="3" stroke-linecap="round" fill="none">
+      <path d="M78,62 L168,36" />
+      <path d="M192,36 L282,76" />
+      <path d="M320,88 L396,52" />
+      <path d="M72,74 L114,150" />
+      <path d="M312,92 L360,146" />
+      <path d="M126,146 L294,86" stroke-dasharray="6 6" opacity="0.6"/>
+    </g>
+    <g font-family="Segoe UI, Arial" font-size="13" fill="#08306b">
+      <text x="46" y="28">A</text>
+      <text x="170" y="18">B</text>
+      <text x="292" y="72">C</text>
+      <text x="414" y="30">D</text>
+      <text x="106" y="178">E</text>
+      <text x="352" y="176">F</text>
+    </g>
+  </g>
+</svg>

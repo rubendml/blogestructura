@@ -28,18 +28,44 @@
 
     <main>
       <div class="container">
-        <section class="card center">
+        <section class="card">
           <h2>Objetivo de la actividad</h2>
-          <p>Este blog explica de forma clara y concisa los conceptos básicos de grafos, las dos representaciones principales y los algoritmos de recorrido fundamentales (BFS y DFS). Incluye ejemplos visuales y un demo interactivo.</p>
+          <p>Este blog tiene como objetivo proporcionar una guía técnica completa y didáctica sobre la estructura de datos Grafos. Además de presentar definiciones y ejemplos visuales, buscamos ofrecer una base sólida para entender cómo representar grafos en memoria, analizar sus propiedades y aplicar algoritmos fundamentales (BFS, DFS) en problemas reales. El material incluye texto de referencia, pseudocódigo, ejemplos en JavaScript y demostraciones interactivas para facilitar el aprendizaje práctico.</p>
+          <p>El enfoque es tanto pedagógico como investigativo: cada entrada contiene contexto teórico, aplicaciones reales (redes sociales, rutas, optimización), y pistas para ampliar el estudio hacia temas avanzados como grafos ponderados, algoritmos de caminos más cortos y análisis de comunidades.</p>
         </section>
 
-        <section class="card center">
-          <h2>Contenido</h2>
-          <ul style="list-style:none;padding:0;margin:0;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-            <li class="card" style="padding:12px;min-width:200px;">Post #1: Introducción — nodos, aristas y tipos</li>
-            <li class="card" style="padding:12px;min-width:200px;">Post #2: Representación — lista y matriz</li>
-            <li class="card" style="padding:12px;min-width:200px;">Post #3: Recorridos — BFS y DFS (demo)</li>
-          </ul>
+        <section class="card">
+          <h2>Introducción ampliada a los Grafos</h2>
+          <p>Un grafo es una representación abstracta de relaciones entre entidades. Formalmente, un grafo G = (V, E) se compone de un conjunto de vértices V y un conjunto de aristas E. Los grafos aparecen en múltiples dominios: redes sociales (personas y amistades), telecomunicaciones (nodos y enlaces), mapas y rutas (intersecciones y carreteras), y dependencias en sistemas de software.</p>
+
+          <div style="display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap">
+            <div style="flex:1;min-width:260px">
+              <p><strong>Tipos importantes:</strong></p>
+              <ul>
+                <li><strong>Dirigidos vs No dirigidos:</strong> Las aristas pueden tener dirección (u → v) o ser simétricas (u — v).</li>
+                <li><strong>Grafo ponderado:</strong> las aristas llevan un peso (coste, distancia, tiempo).</li>
+                <li><strong>Conectividad:</strong> componentes, caminos, ciclos y árboles (grafos sin ciclos).</li>
+              </ul>
+
+              <p><strong>Propiedades relevantes:</strong> grado de los vértices, diámetro (máxima distancia mínima entre pares), y densidad (relación entre E y V^2). Estas propiedades afectan la elección de representación (lista vs matriz) y la complejidad de los algoritmos.</p>
+            </div>
+
+            <div style="flex:1;min-width:260px;text-align:center">
+              <img src="assets/images/graph-abstract.svg" alt="Ilustración de red" style="max-width:100%;height:auto;border-radius:8px;box-shadow:0 6px 18px rgba(16,32,48,0.06)">
+            </div>
+          </div>
+
+          <h3>Representación y complejidad</h3>
+          <p>Para implementaciones, la <strong>lista de adyacencia</strong> es eficiente en espacio para grafos dispersos (O(V+E)), mientras que la <strong>matriz de adyacencia</strong> permite consultas O(1) para existencia de arista pero usa O(V^2) espacio. La elección depende del tamaño del grafo y del tipo de operaciones más frecuentes.</p>
+
+          <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap">
+            <div style="flex:1;min-width:260px;text-align:center">
+              <img src="assets/images/adjacency-vs-matrix.svg" alt="Lista vs Matriz" style="max-width:100%;height:auto;border-radius:8px;box-shadow:0 6px 18px rgba(16,32,48,0.06)">
+            </div>
+            <div style="flex:1;min-width:260px">
+              <p>Los posts siguientes muestran ejemplos concretos de ambas representaciones y comparan sus ventajas en tiempo y espacio. También se incluye código de ejemplo en JavaScript y notas para implementaciones en Python.</p>
+            </div>
+          </div>
         </section>
       </div>
     </main>

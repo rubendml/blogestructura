@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 260" width="700" height="260">
+  <rect width="100%" height="100%" fill="#fbfdff"/>
+  <g transform="translate(30,20)" font-family="Segoe UI, Arial">
+    <g>
+      <text x="0" y="0" font-size="18" fill="#08306b">Lista de adyacencia</text>
+      <g transform="translate(0,16)">
+        <g fill="#e9f2ff" stroke="#9bbcf8" stroke-width="1.5">
+          <rect x="0" y="8" width="220" height="28" rx="6"/>
+          <rect x="0" y="48" width="220" height="28" rx="6"/>
+          <rect x="0" y="88" width="220" height="28" rx="6"/>
+        </g>
+        <g font-size="13" fill="#08306b">
+          <text x="14" y="26">0: 1 → 2 → 3</text>
+          <text x="14" y="66">1: 0 → 3</text>
+          <text x="14" y="106">2: 0</text>
+        </g>
+      </g>
+    </g>
+
+    <g transform="translate(260,0)">
+      <text x="0" y="0" font-size="18" fill="#08306b">Matriz de adyacencia</text>
+      <g transform="translate(0,16)">
+        <g>
+          <rect x="0" y="8" width="160" height="160" fill="#ffffff" stroke="#dbefff" stroke-width="1.2"/>
+          <g fill="#d9e8ff" stroke="#9bbcf8" stroke-width="1">
+            <rect x="8" y="16" width="36" height="36"/>
+            <rect x="48" y="16" width="36" height="36"/>
+            <rect x="88" y="16" width="36" height="36"/>
+            <rect x="8" y="56" width="36" height="36"/>
+            <rect x="48" y="56" width="36" height="36"/>
+            <rect x="88" y="56" width="36" height="36"/>
+            <rect x="8" y="96" width="36" height="36"/>
+            <rect x="48" y="96" width="36" height="36"/>
+            <rect x="88" y="96" width="36" height="36"/>
+          </g>
+        </g>
+      </g>
+    </g>
+
+    <g transform="translate(540,120)" font-size="12" fill="#1b3b6b">
+      <text x="0" y="0">Comparación:</text>
+      <text x="0" y="18">- Lista: espacio O(V+E), ideal para grafos dispersos.</text>
+      <text x="0" y="36">- Matriz: espacio O(V^2), consultas O(1) sobre existencia de arista.</text>
+    </g>
+  </g>
+</svg>
